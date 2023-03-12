@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/pon4j3mqh1w6ql16?svg=true)](https://ci.appveyor.com/project/Olesya1988/ajs-object-reflection-proxy)
