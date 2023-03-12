@@ -1,4 +1,4 @@
-import orderByProps from '../app';
+import orderByProps, { getSpecials } from '../app';
 
 test('sorting by properties', () => {
   const obj = {
@@ -18,4 +18,45 @@ test('sorting by properties', () => {
   ];
 
   expect(orderByProps(obj, ['name', 'level'])).toStrictEqual(correct);
+});
+
+test('get specials', () => {
+  const obj = {
+    name: 'Лучник',
+    type: 'Bowman',
+    health: 50,
+    level: 3,
+    attack: 40,
+    defence: 10,
+    special: [
+      {
+        id: 8,
+        name: 'Двойной выстрел',
+        icon: 'http://...',
+        description: 'Двойной выстрел наносит двойной урон',
+      },
+      {
+        id: 9,
+        name: 'Нокаутирующий удар',
+        icon: 'http://...',
+      },
+    ],
+  };
+
+  const correct = [
+    {
+      id: 8,
+      name: 'Двойной выстрел',
+      icon: 'http://...',
+      description: 'Двойной выстрел наносит двойной урон',
+    },
+    {
+      id: 9,
+      name: 'Нокаутирующий удар',
+      icon: 'http://...',
+      description: 'Описание недоступно',
+    },
+  ];
+
+  expect(getSpecials(obj)).toStrictEqual(correct);
 });

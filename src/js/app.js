@@ -18,3 +18,17 @@ export default function orderByProps(objectToSort, priorityProperties) {
 
   return result;
 }
+
+export function getSpecials(obj) {
+  const result = [];
+  const { special } = obj;
+  for (const i of special) {
+    const {
+      id, name, icon, description = 'Описание недоступно',
+    } = i;
+    result.push({
+      id, name, icon, description,
+    });
+  }
+  return (result);
+}
